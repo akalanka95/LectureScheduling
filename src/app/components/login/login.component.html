@@ -1,0 +1,44 @@
+<mat-toolbar  [hidden]="isloggedIn" color="primary">
+  <h3>Admin Portal</h3>
+</mat-toolbar>
+
+<mat-card class="example-card" [hidden]="isloggedIn">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form" (ngSubmit)="onSubmit()">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Username" [(ngModel)] = "credential.username" name="username" id="username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="Password"
+                   type="password"
+                   [(ngModel)] = "credential.password"
+                   id="password"
+                   name="password" required>
+          </mat-form-field></td>
+        </tr></table>
+      <mat-card-actions>
+        <button mat-raised-button  color="primary" type="submit">Login</button>
+      </mat-card-actions>
+    </form>
+    <!--<mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>-->
+  </mat-card-content>
+
+</mat-card>
+
+<span [hidden]="!isloggedIn">
+ <app-admin-layout></app-admin-layout>
+</span>
+
+<!--<div class="progress">
+  <div class="progress-bar" style="width:70%">70%</div>
+</div> -->
+
