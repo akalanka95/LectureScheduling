@@ -15,6 +15,7 @@ import {DepartmentService} from '../../../services/department.service';
 export class AddStudentComponent implements OnInit {
     // passedStudent: Student;
     @ViewChild('f') addLectureForm: NgForm;
+    passedStudent: Student;
     departmentList: Department [] = [];
     addOrEdit = true;
     buttonName = 'Add Lecture';
@@ -25,6 +26,8 @@ export class AddStudentComponent implements OnInit {
     studentAddres: string;
     studentContact: string ;
     studentRole: string ;
+    imagePath = '../assets/img/faces/marc.jpg';
+    studentImageUrl: string;
     studentDepartment: Department = null;
     studentObject: Student = new Student();
     selectedFile: File = null;
@@ -35,13 +38,19 @@ export class AddStudentComponent implements OnInit {
               private http: HttpClient) { }
 
   ngOnInit() {
-    /*this.passedStudent = this.studentService.passingStudent;
+    this.passedStudent = this.studentService.passingStudent;
     if (this.passedStudent != null) {
         this.isFocused = 'is-focused';
         this.buttonName = 'Update';
         this.addOrEdit = false;
-        this.student = this.passedStudent;
-    }*/
+        this.studentId = this.passedStudent.id;
+        this.studentName = this.passedStudent.fullName;
+        this.studentRole = this.passedStudent.role;
+        this.studentEmail = this.passedStudent.email;
+        this.studentAddres = this.passedStudent.address;
+        this.studentContact = this.passedStudent.contact;
+        this.imagePath =  this.passedStudent.imageUrl ;
+    }
       this.departmentService.getListOfDepartments()
           .subscribe(
               (departmentList: any[]) => {
@@ -58,10 +67,14 @@ export class AddStudentComponent implements OnInit {
         this.studentObject.address = this.studentAddres;
         this.studentObject.email = this.studentEmail;
         this.studentObject.role = this.studentRole;
+        // this.studentImageUrl = 'ST' + this.studentName;
+        this.studentImageUrl = 'ST' + this.studentName + '.' +
+            this.selectedFile.name.substr( this.selectedFile.name.lastIndexOf('.') + 1);
+        this.studentObject.imageUrl = this.studentImageUrl;
         this.studentObject.active = true;
-        console.log(this.studentObject);
+            console.log(this.studentObject);
         const fd = new FormData();
-        fd.append('file', this.selectedFile, 'ST' + this.studentName );
+        fd.append('file', this.selectedFile, this.studentImageUrl );
         this.http.post('http://localhost:8080/api/uploades/images', fd,
             {
                 headers: new HttpHeaders({
@@ -69,10 +82,6 @@ export class AddStudentComponent implements OnInit {
                         localStorage.getItem('xAuthToken').valueOf().substring(10, 46)
                 })
             }).subscribe(res => {
-                console.log(res);
-                console.log(res);
-                console.log(res);
-                console.log(res);
                 console.log(res);
             },
             (error) => console.log(error)

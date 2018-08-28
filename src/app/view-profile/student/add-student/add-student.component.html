@@ -37,7 +37,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group form-black label-floating is-empty">
-                    <select id="inputState" class="form-control"  name="department" ngModel required>
+                    <select id="inputState" class="form-control" name="department" [ngModel] required>
 
                       <option *ngFor="let departments of departmentList" (click)="selectDepartment(departments)">{{departments.departmentName}}</option>
 
@@ -74,7 +74,7 @@
                   </div>
                 </div>
               </div>-->
-              <input type="file" ngModel accept="image/*" (change)="onFileSelcted($event)">
+              <input type="file" [ngModel] accept="image/*" (change)="onFileSelcted($event)">
               <!-- <image-upload  [max]="1" url="https://httpbin.org/status/200" [extensions]="['jpeg','png']" ></image-upload>
  -->
               <!--<div class="row">
@@ -137,9 +137,12 @@
       <div class="col-md-4">
         <div class="card card-profile">
           <div class="card-avatar">
-            <a href="#pablo">
-              <img class="img" src="../assets/img/faces/marc.jpg" />
+            <a *ngIf="addOrEdit; else templateName">
+              <img class="img" src="../assets/img/faces/marc.jpg"/>
             </a>
+              <ng-template #templateName >
+                  <img class="img" src="../assets/img/student/{{imagePath}}"  />
+              </ng-template>
 
           </div>
 

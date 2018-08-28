@@ -38,10 +38,19 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
                 (error) => console.log(error)
             )
     }
-    onEditLecture(student: Student) {
+    onEditStudent(student: Student) {
         this.passStudent = student;
         return this.router.navigate(['edit'], {relativeTo: this.route});
         /*this.lectureService.newEmitter.emit(lecture);*/
+    }
+    onDeleteStudent(student: Student) {
+        this.studentService.deleteStudent(student)
+            .subscribe(
+                (res) => {
+                   console.log(res)
+                },
+                (error) => console.log(error)
+            )
     }
 
     ngOnDestroy(): void {

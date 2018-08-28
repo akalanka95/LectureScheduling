@@ -14,6 +14,7 @@ import {StudentDetailComponent} from '../../view-profile/student/student-detail/
 import {AddStudentComponent} from '../../view-profile/student/add-student/add-student.component';
 import {TimeTableComponent} from '../../time-table/time-table.component';
 import {CalanderComponent} from '../../calander/calander.component';
+import {ScheduleComponent} from '../../schedule/schedule.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -64,6 +65,7 @@ export const AdminLayoutRoutes: Routes = [
             {path : 'students', component : StudentDetailComponent},
             {path : 'add/student', component : AddStudentComponent},
             {path : 'students/edit', component : AddStudentComponent}]},
+    { path: 'schedule',   component: ScheduleComponent },
     { path: 'event',   component: CalanderComponent },
     { path: 'timeTable',   component: TimeTableComponent },
     { path: 'user-profile',   component: UserProfileComponent },

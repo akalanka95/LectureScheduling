@@ -6,18 +6,18 @@
       <tr>
         <th>Image</th>
         <th>Full Name</th>
-        <th>Department</th>
+        <th>Deprtment</th>
         <th>Address</th>
         <th>Contact</th>
         <th>Email</th>
         <th>Active</th>
-        <th>View/Edit</th>
+        <th>View/Edit/Delete</th>
 
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let student of students" >
-        <td><img class="image" src="../assets/img/student/1.jpg" /></td>
+        <td><img class="image" src="../assets/img/student/{{student.imageUrl}}" /></td>
         <td>{{student.fullName}}</td>
         <td>{{student.department.departmentName}}</td>
         <td class="text-danger">{{student.address}}</td>
@@ -26,12 +26,81 @@
         <td class="text-danger">{{student.active}}</td>
         <td><button  type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong" ><i class="fa fa-eye"></i></button>
           &nbsp;
-          <a class="btn btn-success btn-sm" (click)="onEditLecture(student)"><i class="fa fa-pencil-square "></i></a></td>
+          <a class="btn btn-success btn-sm" (click)="onEditStudent(student)"><i class="fa fa-pencil-square "></i></a>
+          &nbsp;
+          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModalLong"
+             ><i class="fa fa-trash "></i></a></td>
+
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document" style="width: 400px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <div class="col-md-12">
+                  <div class="card card-profile">
+                    <div class="card-avatar">
+                      <a >
+                        <img class="img" src="../assets/img/student/{{student.imageUrl}}"/>
+                      </a>
+
+                    </div>
+
+                    <div class="content">
+                      <!--<h1>Department Name</h1>-->
+                      <h4 class="card-title">{{student.fullName}}</h4>
+                      <h6 class="category text-gray" > {{student.role}}</h6>
+                      <h6 class="category text-gray" > {{student.department}}</h6>
+                      <h6 class="category text-gray" > {{student.email}}</h6>
+                      <h6 class="category text-gray" style="padding-right: 10px">{{student.address}}</h6>
+                      <h6 class="category text-gray" > {{student.contact}}</h6>
+
+                      <!--      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>-->
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+              --></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="deleteModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+          <div class="modal-dialog" role="document" style="width: 400px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Delete Student</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h3>Confirm Delete Student details</h3>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                 <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onDeleteStudent(student)">Save changes</button>
+               </div>
+            </div>
+          </div>
+        </div>
+
       </tr>
       </tbody>
     </table>
 
-    <!--<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+
+    <!--<div class="modal fade" id="deleteModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
                   <div class="modal-dialog" role="document" style="margin-top: 20px; margin-left: 300px">
                       <div class="modal-content" style="width: 900px">
                           <div class="modal-header">

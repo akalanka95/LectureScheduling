@@ -31,6 +31,7 @@ import {CalendarModule} from 'angular-calendar';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DepartmentService} from './services/department.service';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   imports: [

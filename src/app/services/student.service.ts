@@ -39,4 +39,11 @@ export class StudentService {
         });
 
     }
+    deleteStudent(student: Student) {
+        const url = 'http://localhost:8080/students/deleteStudent';
+        return this.http.put
+        (url, student , { headers: new HttpHeaders({'x-auth-token' : localStorage
+                    .getItem('xAuthToken').valueOf().substring(10, 46) })
+        });
+    }
 }

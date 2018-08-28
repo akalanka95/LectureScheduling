@@ -27,6 +27,7 @@ import {CalanderComponent} from '../../calander/calander.component';
 import {FlatpickrModule} from 'angularx-flatpickr';
 import {CalendarModule} from 'angular-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ScheduleComponent} from '../../schedule/schedule.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
       StudentDetailComponent,
       AddStudentComponent,
       TimeTableComponent,
-      CalanderComponent
+      CalanderComponent,
+      ScheduleComponent
   ],
     exports: [CalanderComponent]
 })
