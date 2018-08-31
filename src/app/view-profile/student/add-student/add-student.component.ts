@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {StudentService} from '../../../services/student.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Student} from '../../../models/Stuent.model';
+import {Student} from '../../../models/Student.model';
 import {NgForm} from '@angular/forms';
 import {Department} from '../../../models/Department.model';
 import {DepartmentService} from '../../../services/department.service';

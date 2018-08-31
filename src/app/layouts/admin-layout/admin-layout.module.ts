@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
@@ -28,16 +28,21 @@ import {FlatpickrModule} from 'angularx-flatpickr';
 import {CalendarModule} from 'angular-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ScheduleComponent} from '../../schedule/schedule.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {MaterialModule} from '../../material';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+      ReactiveFormsModule,
+      MaterialModule,
     MatButtonModule,
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
+      MDBBootstrapModule.forRoot(),
       FlatpickrModule.forRoot(),
       CalendarModule.forRoot(),
       NgbModule
@@ -59,7 +64,7 @@ import {ScheduleComponent} from '../../schedule/schedule.component';
       CalanderComponent,
       ScheduleComponent
   ],
-    exports: [CalanderComponent]
+    exports: [CalanderComponent , ScheduleComponent ]
 })
 
 export class AdminLayoutModule {}

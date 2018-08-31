@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 
@@ -31,12 +31,19 @@ import {CalendarModule} from 'angular-calendar';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DepartmentService} from './services/department.service';
-import { ScheduleComponent } from './schedule/schedule.component';
+import {LectureService} from './services/lecture.service';
+import {DayService} from './services/day.service';
+import {TimeService} from './services/time.service';
+import {LectureHallService} from './services/lecture-hall.service';
+import {CourseService} from './services/course.service';
+import {SemesterService} from './services/semester.service';
+import {TimeTableService} from './services/time-table.service';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
+      ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
     RouterModule,
@@ -52,7 +59,10 @@ import { ScheduleComponent } from './schedule/schedule.component';
       LoginComponent
 
   ],
-  providers: [LoginService , StudentService , DepartmentService],
+  providers: [LoginService , StudentService ,
+      DepartmentService , LectureService , DayService ,
+  TimeService , LectureHallService , CourseService , SemesterService
+  , TimeTableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Student} from '../../../models/Stuent.model';
+import {Student} from '../../../models/Student.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StudentService} from '../../../services/student.service';
 

@@ -1,4 +1,5 @@
 import {Department} from './Department.model';
+import {Semester} from './Semester.model';
 
 export class Student {
     public id: number;
@@ -10,6 +11,7 @@ export class Student {
     public department: Department;
     public imageUrl: string;
     public active: boolean;
+    public semester: Semester;
 
 
     constructor() {
