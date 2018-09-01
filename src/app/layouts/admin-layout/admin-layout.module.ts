@@ -30,6 +30,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ScheduleComponent} from '../../schedule/schedule.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {MaterialModule} from '../../material';
+import {AttendanceComponent} from '../../attendance/attendance.component';
+import {AddLectureComponent} from '../../view-profile/lecturer/add-lecture/add-lecture.component';
+import {DepartmentService} from '../../services/department.service';
+import {DepartmentTimeTableComponent} from '../../time-table/department-time-table/department-time-table.component';
 
 @NgModule({
   imports: [
@@ -62,7 +66,10 @@ import {MaterialModule} from '../../material';
       AddStudentComponent,
       TimeTableComponent,
       CalanderComponent,
-      ScheduleComponent
+      ScheduleComponent,
+      AttendanceComponent,
+      AddLectureComponent,
+      DepartmentTimeTableComponent
   ],
     exports: [CalanderComponent , ScheduleComponent ]
 })

@@ -38,6 +38,10 @@ import {LectureHallService} from './services/lecture-hall.service';
 import {CourseService} from './services/course.service';
 import {SemesterService} from './services/semester.service';
 import {TimeTableService} from './services/time-table.service';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { AddLectureComponent } from './view-profile/lecturer/add-lecture/add-lecture.component';
+import { DepartmentTimeTableComponent } from './time-table/department-time-table/department-time-table.component';
+import {AttendanceService} from './services/attendance.service';
 
 @NgModule({
   imports: [
@@ -62,7 +66,7 @@ import {TimeTableService} from './services/time-table.service';
   providers: [LoginService , StudentService ,
       DepartmentService , LectureService , DayService ,
   TimeService , LectureHallService , CourseService , SemesterService
-  , TimeTableService],
+  , TimeTableService , AttendanceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

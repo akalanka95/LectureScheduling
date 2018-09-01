@@ -9,9 +9,11 @@ import {
 @NgModule({
   imports : [MatButtonModule, MatCheckboxModule , MatToolbarModule , MatSidenavModule ,
     MatIconModule , MatListModule , MatCardModule , MatFormFieldModule , MatInputModule
-  , MatGridListModule , MatDatepickerModule , MatSelectModule , MatSlideToggleModule , MatTableModule],
+  , MatGridListModule , MatDatepickerModule , MatSelectModule ,
+      MatSlideToggleModule , MatTableModule, MatCheckboxModule],
   exports : [MatButtonModule, MatCheckboxModule , MatToolbarModule , MatSidenavModule ,
     MatIconModule , MatListModule , MatCardModule , MatFormFieldModule , MatInputModule,
-    MatGridListModule , MatDatepickerModule , MatSelectModule , MatSlideToggleModule , MatTableModule]
+    MatGridListModule , MatDatepickerModule ,
+      MatSelectModule , MatSlideToggleModule , MatTableModule , MatCheckboxModule]
 })
 export class MaterialModule { }

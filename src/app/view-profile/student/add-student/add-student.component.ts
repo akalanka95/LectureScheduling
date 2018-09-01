@@ -18,7 +18,7 @@ export class AddStudentComponent implements OnInit {
     passedStudent: Student;
     departmentList: Department [] = [];
     addOrEdit = true;
-    buttonName = 'Add Lecture';
+    buttonName = 'Add Student';
     isFocused = ' ';
     studentId: number;
     studentName: string;
@@ -72,7 +72,7 @@ export class AddStudentComponent implements OnInit {
             this.selectedFile.name.substr( this.selectedFile.name.lastIndexOf('.') + 1);
         this.studentObject.imageUrl = this.studentImageUrl;
         this.studentObject.active = true;
-            console.log(this.studentObject);
+        console.log(this.studentObject);
         const fd = new FormData();
         fd.append('file', this.selectedFile, this.studentImageUrl );
         this.http.post('http://localhost:8080/api/uploades/images', fd,
