@@ -34,6 +34,8 @@ import {AttendanceComponent} from '../../attendance/attendance.component';
 import {AddLectureComponent} from '../../view-profile/lecturer/add-lecture/add-lecture.component';
 import {DepartmentService} from '../../services/department.service';
 import {DepartmentTimeTableComponent} from '../../time-table/department-time-table/department-time-table.component';
+import {NoticeBoardComponent} from '../../notice-board/notice-board.component';
+import {CheckingComponent} from '../../checking/checking.component';
 
 @NgModule({
   imports: [
@@ -69,7 +71,9 @@ import {DepartmentTimeTableComponent} from '../../time-table/department-time-tab
       ScheduleComponent,
       AttendanceComponent,
       AddLectureComponent,
-      DepartmentTimeTableComponent
+      DepartmentTimeTableComponent,
+      NoticeBoardComponent,
+      CheckingComponent
   ],
     exports: [CalanderComponent , ScheduleComponent ]
 })

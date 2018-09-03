@@ -42,6 +42,8 @@ import { AttendanceComponent } from './attendance/attendance.component';
 import { AddLectureComponent } from './view-profile/lecturer/add-lecture/add-lecture.component';
 import { DepartmentTimeTableComponent } from './time-table/department-time-table/department-time-table.component';
 import {AttendanceService} from './services/attendance.service';
+import { NoticeBoardComponent } from './notice-board/notice-board.component';
+import { CheckingComponent } from './checking/checking.component';
 
 @NgModule({
   imports: [

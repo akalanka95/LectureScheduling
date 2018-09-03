@@ -18,6 +18,8 @@ import {ScheduleComponent} from '../../schedule/schedule.component';
 import {AttendanceComponent} from '../../attendance/attendance.component';
 import {AddLectureComponent} from '../../view-profile/lecturer/add-lecture/add-lecture.component';
 import {DepartmentTimeTableComponent} from '../../time-table/department-time-table/department-time-table.component';
+import {NoticeBoardComponent} from '../../notice-board/notice-board.component';
+import {CheckingComponent} from '../../checking/checking.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -75,6 +77,8 @@ export const AdminLayoutRoutes: Routes = [
             {path : 'view/semester1/:id', component : DepartmentTimeTableComponent}
             ]},
     { path: 'attendance',   component: AttendanceComponent },
+    { path: 'checking',   component: CheckingComponent},
+    { path: 'notice-board',   component: NoticeBoardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },

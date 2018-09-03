@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {
-  MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCheckboxModule,
-  MatCardModule, MatFormFieldModule, MatInputModule, MatGridListModule, MatDatepickerModule, MatSelectModule, MatSlideToggleModule,
-  MatTableModule
+    MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCheckboxModule,
+    MatCardModule, MatFormFieldModule, MatInputModule, MatGridListModule, MatDatepickerModule, MatSelectModule, MatSlideToggleModule,
+    MatTableModule, MatNativeDateModule
 
 } from '@angular/material';
 
@@ -10,10 +10,10 @@ import {
   imports : [MatButtonModule, MatCheckboxModule , MatToolbarModule , MatSidenavModule ,
     MatIconModule , MatListModule , MatCardModule , MatFormFieldModule , MatInputModule
   , MatGridListModule , MatDatepickerModule , MatSelectModule ,
-      MatSlideToggleModule , MatTableModule, MatCheckboxModule],
+      MatSlideToggleModule , MatTableModule, MatCheckboxModule , MatNativeDateModule ],
   exports : [MatButtonModule, MatCheckboxModule , MatToolbarModule , MatSidenavModule ,
     MatIconModule , MatListModule , MatCardModule , MatFormFieldModule , MatInputModule,
     MatGridListModule , MatDatepickerModule ,
-      MatSelectModule , MatSlideToggleModule , MatTableModule , MatCheckboxModule]
+      MatSelectModule , MatSlideToggleModule , MatTableModule , MatCheckboxModule , MatNativeDateModule]
 })
 export class MaterialModule { }
