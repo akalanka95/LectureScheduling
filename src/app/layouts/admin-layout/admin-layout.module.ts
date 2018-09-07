@@ -36,6 +36,21 @@ import {DepartmentService} from '../../services/department.service';
 import {DepartmentTimeTableComponent} from '../../time-table/department-time-table/department-time-table.component';
 import {NoticeBoardComponent} from '../../notice-board/notice-board.component';
 import {CheckingComponent} from '../../checking/checking.component';
+import {AddSubjectComponent} from '../../checking/add-subject/add-subject.component';
+import {SearchComponent} from '../../checking/search/search.component';
+import {promise} from 'selenium-webdriver';
+import CancellationError = promise.CancellationError;
+import {CancelingComponent} from '../../checking/canceling/canceling.component';
+import {SemesterCancelComponent} from '../../checking/semester-cancel/semester-cancel.component';
+import {ChatComponent} from '../../chat/chat.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {QuillModule} from 'ngx-quill';
+import {ReportComponent} from '../../report/report.component';
+import {ResetComponent} from '../../reset/reset.component';
+import {TablesearchComponent} from '../../time-table/tablesearch/tablesearch.component';
+import {LectureHallComponent} from '../../time-table/lecture-hall/lecture-hall.component';
+import {MailComponent} from '../../mail/mail.component';
+
 
 @NgModule({
   imports: [
@@ -48,6 +63,8 @@ import {CheckingComponent} from '../../checking/checking.component';
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
+      FlexLayoutModule,
+      QuillModule,
       MDBBootstrapModule.forRoot(),
       FlatpickrModule.forRoot(),
       CalendarModule.forRoot(),
@@ -73,9 +90,19 @@ import {CheckingComponent} from '../../checking/checking.component';
       AddLectureComponent,
       DepartmentTimeTableComponent,
       NoticeBoardComponent,
-      CheckingComponent
+      CheckingComponent,
+      AddSubjectComponent,
+      SearchComponent,
+      CancelingComponent,
+      SemesterCancelComponent,
+      ChatComponent,
+      ReportComponent,
+      ResetComponent,
+      TablesearchComponent,
+      LectureHallComponent,
+      MailComponent
   ],
-    exports: [CalanderComponent , ScheduleComponent ]
+    exports: [CalanderComponent , ScheduleComponent  ]
 })
 
 export class AdminLayoutModule {}

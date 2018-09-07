@@ -20,6 +20,17 @@ import {AddLectureComponent} from '../../view-profile/lecturer/add-lecture/add-l
 import {DepartmentTimeTableComponent} from '../../time-table/department-time-table/department-time-table.component';
 import {NoticeBoardComponent} from '../../notice-board/notice-board.component';
 import {CheckingComponent} from '../../checking/checking.component';
+import {AddSubjectComponent} from '../../checking/add-subject/add-subject.component';
+import {SearchComponent} from '../../checking/search/search.component';
+import {CancelingComponent} from '../../checking/canceling/canceling.component';
+import {SemesterCancelComponent} from '../../checking/semester-cancel/semester-cancel.component';
+import {ChatComponent} from '../../chat/chat.component';
+import {ReportComponent} from '../../report/report.component';
+import {ResetComponent} from '../../reset/reset.component';
+import {TablesearchComponent} from '../../time-table/tablesearch/tablesearch.component';
+import {LectureHallComponent} from '../../time-table/lecture-hall/lecture-hall.component';
+import {MailComponent} from '../../mail/mail.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -74,11 +85,21 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'schedule',   component: ScheduleComponent },
     { path: 'event',   component: CalanderComponent },
     { path: 'timeTable',   component: TimeTableComponent, children : [
-            {path : 'view/semester1/:id', component : DepartmentTimeTableComponent}
+            {path : 'view/semester', component : TablesearchComponent},
+            {path : 'view/lectureHall', component : LectureHallComponent},
+            {path : 'view/semester/week/:id', component : DepartmentTimeTableComponent}
             ]},
     { path: 'attendance',   component: AttendanceComponent },
-    { path: 'checking',   component: CheckingComponent},
+    { path: 'search',   component: CheckingComponent, children : [
+            {path : 'form/view/freeTime/:semId/:lecId', component : AddSubjectComponent},
+            {path : 'form', component : SearchComponent},
+            { path: 'cancel',   component: CancelingComponent },
+            { path: 'cancel/semester/:id',   component: SemesterCancelComponent},
+        ]},
+    { path: 'chat',   component: MailComponent },
     { path: 'notice-board',   component: NoticeBoardComponent },
+    { path: 'report',   component: ReportComponent },
+    { path: 'reset',   component: ResetComponent},
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },

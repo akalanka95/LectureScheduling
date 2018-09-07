@@ -44,6 +44,17 @@ import { DepartmentTimeTableComponent } from './time-table/department-time-table
 import {AttendanceService} from './services/attendance.service';
 import { NoticeBoardComponent } from './notice-board/notice-board.component';
 import { CheckingComponent } from './checking/checking.component';
+import { AddSubjectComponent } from './checking/add-subject/add-subject.component';
+import { SearchComponent } from './checking/search/search.component';
+import { CancelingComponent } from './checking/canceling/canceling.component';
+import { SemesterCancelComponent } from './checking/semester-cancel/semester-cancel.component';
+import { ChatComponent } from './chat/chat.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {QuillModule} from 'ngx-quill';
+import { ReportComponent } from './report/report.component';
+import { ResetComponent } from './reset/reset.component';
+import { TablesearchComponent } from './time-table/tablesearch/tablesearch.component';
+import { MailComponent } from './mail/mail.component';
 
 @NgModule({
   imports: [
@@ -55,6 +66,8 @@ import { CheckingComponent } from './checking/checking.component';
     RouterModule,
     AppRoutingModule,
       MaterialModule,
+      FlexLayoutModule,
+      QuillModule,
       AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
