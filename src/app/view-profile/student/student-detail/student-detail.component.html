@@ -28,8 +28,7 @@
           &nbsp;
           <a class="btn btn-success btn-sm" (click)="onEditStudent(student)"><i class="fa fa-pencil-square "></i></a>
           &nbsp;
-          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModalLong"
-             (click)="onDeleteStudent(student)"><i class="fa fa-trash "></i></a></td>
+          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModalLong"><i class="fa fa-trash "></i></a></td>
 
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document" style="width: 400px">
@@ -89,7 +88,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                 <button type="button" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+                 <button type="button" (click)="onDeleteStudent(student)" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
                </div>
             </div>
           </div>

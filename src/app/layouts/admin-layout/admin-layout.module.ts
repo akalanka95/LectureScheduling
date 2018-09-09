@@ -24,7 +24,7 @@ import {LecturesDetailComponent} from '../../view-profile/lecturer/lectures-deta
 import {AddStudentComponent} from '../../view-profile/student/add-student/add-student.component';
 import {TimeTableComponent} from '../../time-table/time-table.component';
 import {CalanderComponent} from '../../calander/calander.component';
-import {FlatpickrModule} from 'angularx-flatpickr';
+import {FlatpickrModule } from 'angularx-flatpickr';
 import {CalendarModule} from 'angular-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ScheduleComponent} from '../../schedule/schedule.component';
@@ -50,6 +50,7 @@ import {ResetComponent} from '../../reset/reset.component';
 import {TablesearchComponent} from '../../time-table/tablesearch/tablesearch.component';
 import {LectureHallComponent} from '../../time-table/lecture-hall/lecture-hall.component';
 import {MailComponent} from '../../mail/mail.component';
+import {ComposeComponent} from '../../mail/compose/compose.component';
 
 
 @NgModule({
@@ -100,7 +101,8 @@ import {MailComponent} from '../../mail/mail.component';
       ResetComponent,
       TablesearchComponent,
       LectureHallComponent,
-      MailComponent
+      MailComponent,
+      ComposeComponent
   ],
     exports: [CalanderComponent , ScheduleComponent  ]
 })

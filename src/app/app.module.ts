@@ -28,7 +28,6 @@ import {MaterialModule} from './material';
 import {LoginService} from './services/login.service';
 import {StudentService} from './services/student.service';
 import {CalendarModule} from 'angular-calendar';
-import { FlatpickrModule } from 'angularx-flatpickr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DepartmentService} from './services/department.service';
 import {LectureService} from './services/lecture.service';
@@ -55,6 +54,9 @@ import { ReportComponent } from './report/report.component';
 import { ResetComponent } from './reset/reset.component';
 import { TablesearchComponent } from './time-table/tablesearch/tablesearch.component';
 import { MailComponent } from './mail/mail.component';
+import { ComposeComponent } from './mail/compose/compose.component';
+import {FlatpickrModule} from 'angularx-flatpickr';
+import {MesagingService} from './services/mesaging.service';
 
 @NgModule({
   imports: [
@@ -81,7 +83,7 @@ import { MailComponent } from './mail/mail.component';
   providers: [LoginService , StudentService ,
       DepartmentService , LectureService , DayService ,
   TimeService , LectureHallService , CourseService , SemesterService
-  , TimeTableService , AttendanceService],
+  , TimeTableService , AttendanceService , MesagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -30,6 +30,7 @@ import {ResetComponent} from '../../reset/reset.component';
 import {TablesearchComponent} from '../../time-table/tablesearch/tablesearch.component';
 import {LectureHallComponent} from '../../time-table/lecture-hall/lecture-hall.component';
 import {MailComponent} from '../../mail/mail.component';
+import {ComposeComponent} from '../../mail/compose/compose.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -96,7 +97,9 @@ export const AdminLayoutRoutes: Routes = [
             { path: 'cancel',   component: CancelingComponent },
             { path: 'cancel/semester/:id',   component: SemesterCancelComponent},
         ]},
-    { path: 'chat',   component: MailComponent },
+    { path: 'chat',   component: MailComponent , children : [
+            {path : 'compose', component : ComposeComponent}
+    ]},
     { path: 'notice-board',   component: NoticeBoardComponent },
     { path: 'report',   component: ReportComponent },
     { path: 'reset',   component: ResetComponent},

@@ -1,5 +1,5 @@
 import { Instance } from "./instance";
-import { CustomLocale, key as LocaleKey } from "./locale";
+import { CustomLocale, key as LocaleKey, Locale } from "./locale";
 export declare type DateOption = Date | string | number;
 export declare type DateRangeLimit<D = DateOption> = {
     from: D;
@@ -8,6 +8,7 @@ export declare type DateRangeLimit<D = DateOption> = {
 export declare type DateLimit<D = DateOption> = D | DateRangeLimit<D> | ((date: Date) => boolean);
 export declare type Hook = (dates: Date[], currentDateString: string, self: Instance, data?: any) => void;
 export declare type HookKey = "onChange" | "onClose" | "onDayCreate" | "onDestroy" | "onKeyDown" | "onMonthChange" | "onOpen" | "onParseConfig" | "onReady" | "onValueUpdate" | "onYearChange" | "onPreCalendarPosition";
+export declare const HOOKS: HookKey[];
 export declare type Plugin<E = {}> = (fp: Instance & E) => Options;
 export interface BaseOptions {
     allowInput: boolean;
@@ -31,7 +32,7 @@ export interface BaseOptions {
     enableSeconds: boolean;
     enableTime: boolean;
     errorHandler: (e: Error) => void;
-    formatDate: (date: Date, format: string) => string;
+    formatDate: (date: Date, format: string, locale: Locale) => string;
     getWeek: (date: Date) => string | number;
     hourIncrement: number;
     ignoredFocusElements: HTMLElement[];

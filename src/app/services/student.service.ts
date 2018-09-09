@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Student} from '../models/Student.model';
 
@@ -7,6 +7,7 @@ import {Student} from '../models/Student.model';
 })
 export class StudentService {
     passingStudent: Student;
+    studentChanged = new EventEmitter<Student[]>();
 
     constructor(private http: HttpClient) { }
     getListOfStudents() {

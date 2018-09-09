@@ -46,8 +46,8 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
     onDeleteStudent(student: Student) {
         this.studentService.deleteStudent(student)
             .subscribe(
-                (res) => {
-                   console.log(res)
+                (students: any[]) => {
+                    this.students = students;
                 },
                 (error) => console.log(error)
             )
@@ -56,6 +56,4 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.studentService.passingStudent = this.passStudent;
     }
-
-
 }
