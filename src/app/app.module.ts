@@ -57,6 +57,9 @@ import { MailComponent } from './mail/mail.component';
 import { ComposeComponent } from './mail/compose/compose.component';
 import {FlatpickrModule} from 'angularx-flatpickr';
 import {MesagingService} from './services/mesaging.service';
+import {FirebaseModule, FirebaseProvider} from 'angular-firebase';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
 
 @NgModule({
   imports: [
@@ -70,6 +73,7 @@ import {MesagingService} from './services/mesaging.service';
       MaterialModule,
       FlexLayoutModule,
       QuillModule,
+      AngularFireModule.initializeApp(environment.firebase),
       AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
@@ -83,7 +87,7 @@ import {MesagingService} from './services/mesaging.service';
   providers: [LoginService , StudentService ,
       DepartmentService , LectureService , DayService ,
   TimeService , LectureHallService , CourseService , SemesterService
-  , TimeTableService , AttendanceService , MesagingService],
+  , TimeTableService , AttendanceService , MesagingService , FirebaseProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

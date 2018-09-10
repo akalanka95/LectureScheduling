@@ -13,7 +13,9 @@ export class StudentService {
     getListOfStudents() {
         const url = 'http://localhost:8080/students/findAll';
         return this.http.get
-        (url, { headers: new HttpHeaders({'x-auth-token' : localStorage.getItem('xAuthToken').valueOf().substring(10, 46) })
+        (url, { headers: new HttpHeaders
+            ({'x-auth-token' : localStorage.
+                getItem('xAuthToken').valueOf().substring(10, 46) })
         });
     }
 

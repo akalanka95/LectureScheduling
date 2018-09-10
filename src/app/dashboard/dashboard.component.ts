@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
     dayList: Day[] = [];
     activeDay: Array<string> = [];
-
+    message;
     constructor(private dayService: DayService,
                 private attendanceService: AttendanceService,
                 private timeTableservice: TimeTableService,
