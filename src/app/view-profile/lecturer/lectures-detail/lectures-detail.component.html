@@ -28,7 +28,7 @@
           &nbsp;
           <a class="btn btn-success btn-sm" ><i class="fa fa-pencil-square "></i></a>
           &nbsp;
-          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModalLong"
+          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
              ><i class="fa fa-trash "></i></a></td>
 
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -94,7 +94,31 @@
             </div>
           </div>
         </div>
+        <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+              <!--Header-->
+              <div class="modal-header d-flex justify-content-center">
+                <p class="heading">Are you sure?</p>
+              </div>
 
+              <!--Body-->
+              <div class="modal-body">
+                <i class="fa fa-times fa-4x animated rotateIn"></i>
+              </div>
+
+              <!--Footer-->
+              <div class="modal-footer flex-center">
+                <a href="https://mdbootstrap.com/product/angular-bootstrap-pro/" mdbBtn color="danger" outline="true" class="waves-effect"
+                   mdbWavesEffect>Yes</a>
+                <a type="button" mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
+              </div>
+            </div>
+            <!--/.Content-->
+          </div>
+        </div>
       </tr>
       </tbody>
     </table>

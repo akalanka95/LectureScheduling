@@ -31,6 +31,7 @@ import {TablesearchComponent} from '../../time-table/tablesearch/tablesearch.com
 import {LectureHallComponent} from '../../time-table/lecture-hall/lecture-hall.component';
 import {MailComponent} from '../../mail/mail.component';
 import {ComposeComponent} from '../../mail/compose/compose.component';
+import {LectureTimeComponent} from '../../time-table/lecture-time/lecture-time.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -88,6 +89,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'timeTable',   component: TimeTableComponent, children : [
             {path : 'view/semester', component : TablesearchComponent},
             {path : 'view/lectureHall', component : LectureHallComponent},
+            {path : 'view/lecture', component : LectureTimeComponent},
             {path : 'view/semester/week/:id', component : DepartmentTimeTableComponent}
             ]},
     { path: 'attendance',   component: AttendanceComponent },

@@ -60,6 +60,8 @@ import {MesagingService} from './services/mesaging.service';
 import {FirebaseModule, FirebaseProvider} from 'angular-firebase';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import { LectureTimeComponent } from './time-table/lecture-time/lecture-time.component';
 
 @NgModule({
   imports: [
@@ -73,6 +75,7 @@ import {environment} from '../environments/environment';
       MaterialModule,
       FlexLayoutModule,
       QuillModule,
+      MDBBootstrapModule.forRoot(),
       AngularFireModule.initializeApp(environment.firebase),
       AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'

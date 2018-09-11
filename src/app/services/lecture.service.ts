@@ -32,4 +32,10 @@ export class LectureService {
         });
 
     }
+    getLecture(lecId: number) {
+        const url = 'http://localhost:8080/lectures/findById/' + lecId;
+        return this.http.get
+        (url, { headers: new HttpHeaders({'x-auth-token' : localStorage.getItem('xAuthToken').valueOf().substring(10, 46) })
+        });
+    }
 }

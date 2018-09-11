@@ -15,9 +15,12 @@
               <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link"  data-toggle="tab" routerLink="departmentRef"  (click)="activeTab('Add DepartmentRef','departmentRef')"><i class="material-icons">face</i>DepartmentRefs</a>
               </li>
-              <a class="btn btn-primary btn-round" style="float: right" routerLink="add/{{activeId}}" data-toggle="tab">
+              <button type="button" style="margin-left: 50%"
+                      mdbBtn color="primary"
+                      mdbWavesEffect routerLink="add/{{activeId}}" data-toggle="tab">{{active}}</button>
+              <!--<a class="btn btn-primary btn-round pull-right" style="float: right" routerLink="add/{{activeId}}" data-toggle="tab">
                 <i class="material-icons">dashboard</i> {{active}}
-              </a>
+              </a>-->
             </ul>
           </div>
 

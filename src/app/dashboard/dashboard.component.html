@@ -1,6 +1,62 @@
 <div class="main-content">
   <div class="container-fluid">
       <div class="row">
+          <div class="col-lg-5 col-md-6 col-sm-6">
+              <div class="card">
+                  <div class="card-header card-header-warning">
+                      <h4 class="card-title">Active Days</h4>
+                      <p class="card-category">Enable/Disable the days of the week</p>
+                  </div>
+                  <div class="card-body table-responsive">
+                      <div *ngFor="let days of dayList">
+                          <mat-slide-toggle  [(ngModel)]="days.active"
+                                             class="example-margin" color="primary">
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>{{days.day}}</p></mat-slide-toggle>
+                          <br>
+                          <br>
+                      </div>
+                      <!--<button type="submit" (click)="saveDay()" class="btn btn-danger pull-right" >Save Changes</button>
+                      --><button type="button" class="pull-right"
+                              mdbBtn color="primary"   data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
+                              mdbWavesEffect>Save</button>
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="col-md-4">
+               <div class="card card-chart">
+                   <div class="card-header card-header-warning">
+                       <div class="ct-chart" id="websiteViewsChart"></div>
+                   </div>
+                   <div class="card-body">
+                       <h4 class="card-title">Email Subscriptions</h4>
+                       <p class="card-category">Last Campaign Performance</p>
+                   </div>
+                   <div class="card-footer">
+                       <div class="stats">
+                           <i class="material-icons">access_time</i> campaign sent 2 days ago
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-md-4">
+               <div class="card card-chart">
+                   <div class="card-header card-header-danger">
+                       <div class="ct-chart" id="completedTasksChart"></div>
+                   </div>
+                   <div class="card-body">
+                       <h4 class="card-title">Completed Tasks</h4>
+                       <p class="card-category">Last Campaign Performance</p>
+                   </div>
+                   <div class="card-footer">
+                       <div class="stats">
+                           <i class="material-icons">access_time</i> campaign sent 2 days ago
+                       </div>
+                   </div>
+               </div>
+           </div>-->
+      </div>
+      <div class="row">
+          <!--{{ message | async | json }}-->
           <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                   <div class="card-header card-header-warning card-header-icon">
@@ -68,60 +124,6 @@
                   </div>
               </div>
           </div>
-      </div>
-      <div class="row">
-          <div class="col-md-12">
-              <div class="card">
-                  <div class="card-header card-header-warning">
-                      <h4 class="card-title">Active Days</h4>
-                      <p class="card-category">New employees on 15th September, 2016</p>
-                  </div>
-                  <div class="card-body table-responsive">
-                      <div *ngFor="let days of dayList">
-                      <mat-slide-toggle  [(ngModel)]="days.active"
-                              class="example-margin" color="primary">
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{days.day}}</mat-slide-toggle>
-                          <br>
-                          <br>
-                          <br>
-                      </div>
-                      <button type="submit" (click)="saveDay()" class="btn btn-danger pull-right" >Save Changes</button>
-
-                  </div>
-              </div>
-          </div>
-         <!-- <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-warning">
-                      <div class="ct-chart" id="websiteViewsChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Email Subscriptions</h4>
-                      <p class="card-category">Last Campaign Performance</p>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">access_time</i> campaign sent 2 days ago
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-danger">
-                      <div class="ct-chart" id="completedTasksChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Completed Tasks</h4>
-                      <p class="card-category">Last Campaign Performance</p>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">access_time</i> campaign sent 2 days ago
-                      </div>
-                  </div>
-              </div>
-          </div>-->
       </div>
       <div class="row">
           <div class="col-lg-6 col-md-12">
@@ -415,4 +417,39 @@
           </div>
       </div>
   </div>
+    <div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true" >
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Save Changes</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+                        <p>Make sure that you have updated the availability of the dates of the week correctly.
+                        Save to make the changes.</p>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="submit" (click)="saveDay()" mdbBtn color="primary" class="waves-light"  data-dismiss="modal" mdbWavesEffect>Save Changes
+                        <i class="fa fa-diamond ml-1"></i>
+                    </a>
+                    <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect (click)="frame.hide()" data-dismiss="modal">No, thanks</a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
 </div>

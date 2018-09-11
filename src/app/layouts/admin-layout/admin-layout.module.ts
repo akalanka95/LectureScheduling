@@ -51,6 +51,7 @@ import {TablesearchComponent} from '../../time-table/tablesearch/tablesearch.com
 import {LectureHallComponent} from '../../time-table/lecture-hall/lecture-hall.component';
 import {MailComponent} from '../../mail/mail.component';
 import {ComposeComponent} from '../../mail/compose/compose.component';
+import {LectureTimeComponent} from '../../time-table/lecture-time/lecture-time.component';
 
 
 @NgModule({
@@ -102,7 +103,8 @@ import {ComposeComponent} from '../../mail/compose/compose.component';
       TablesearchComponent,
       LectureHallComponent,
       MailComponent,
-      ComposeComponent
+      ComposeComponent,
+      LectureTimeComponent
   ],
     exports: [CalanderComponent , ScheduleComponent  ]
 })
