@@ -94,7 +94,7 @@ export const AdminLayoutRoutes: Routes = [
             ]},
     { path: 'attendance',   component: AttendanceComponent },
     { path: 'search',   component: CheckingComponent, children : [
-            {path : 'form/view/freeTime/:semId/:lecId', component : AddSubjectComponent},
+            {path : 'form/view/freeTime/:semId/:lecId/:couId', component : AddSubjectComponent},
             {path : 'form', component : SearchComponent},
             { path: 'cancel',   component: CancelingComponent },
             { path: 'cancel/semester/:id',   component: SemesterCancelComponent},
