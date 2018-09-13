@@ -62,6 +62,8 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { LectureTimeComponent } from './time-table/lecture-time/lecture-time.component';
+import {NoticeBoardService} from './services/notice-board.service';
+import {WeekService} from './services/week.service';
 
 @NgModule({
   imports: [
@@ -90,7 +92,9 @@ import { LectureTimeComponent } from './time-table/lecture-time/lecture-time.com
   providers: [LoginService , StudentService ,
       DepartmentService , LectureService , DayService ,
   TimeService , LectureHallService , CourseService , SemesterService
-  , TimeTableService , AttendanceService , MesagingService , FirebaseProvider],
+  , TimeTableService , AttendanceService ,
+      MesagingService , FirebaseProvider , NoticeBoardService ,
+  WeekService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

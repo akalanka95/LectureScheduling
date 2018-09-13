@@ -19,7 +19,7 @@
     <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
   </div>
 </ng-template>-->
-<div class="main-content" style="margin-top: 70px">
+<div class="main-content" style="margin-top: 40px; padding: 30px 170px;">
 <div class="row text-center">
   <div class="col-md-4">
     <div class="btn-group">
@@ -73,6 +73,14 @@
     </div>
   </div>
 </div>
+  <h3>
+    <button
+            class="btn btn-success pull-right"
+            (click)="addEvent()" data-toggle="modal" data-target="#addEventModalLong">
+      Add new
+    </button>
+    <div class="clearfix"></div>
+  </h3>
   <div class="modal fade"  id="addEventModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 900px;
 max-width: 1500px;" role="document" >
@@ -203,15 +211,6 @@ max-width: 1500px;" role="document" >
 
 <br><br><br>
 
-<h3>
-  Edit events
-  <button
-          class="btn btn-primary pull-right"
-          (click)="addEvent()" data-toggle="modal" data-target="#addEventModalLong">
-    Add new
-  </button>
-  <div class="clearfix"></div>
-</h3>
 
 </div>
 
