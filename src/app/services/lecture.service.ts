@@ -10,13 +10,13 @@ export class LectureService {
 
     constructor(private http: HttpClient) { }
     getListOfLectures() {
-        const url = 'http://localhost:8080/lectures/findAll';
+        const url = '/api/lectures/findAll';
         return this.http.get
         (url, { headers: new HttpHeaders({'x-auth-token' : localStorage.getItem('xAuthToken').valueOf().substring(10, 46) })
         });
     }
     updateLectureList(updateLectureList: Lecture[]) {
-        const url = 'http://localhost:8080/lectures/updateAll';
+        const url = '/api/lectures/updateAll';
         return this.http.put
         (url, updateLectureList , { headers: new HttpHeaders({'x-auth-token' : localStorage
                     .getItem('xAuthToken').valueOf().substring(10, 46) })
@@ -25,7 +25,7 @@ export class LectureService {
     }
 
     postNewLecture(newLecture: Lecture) {
-        const url = 'http://localhost:8080/lectures/addLecture';
+        const url = '/api/lectures/addLecture';
         return this.http.post
         (url, newLecture, { headers: new HttpHeaders({'x-auth-token' : localStorage
                     .getItem('xAuthToken').valueOf().substring(10, 46) })
@@ -33,7 +33,7 @@ export class LectureService {
 
     }
     getLecture(lecId: number) {
-        const url = 'http://localhost:8080/lectures/findById/' + lecId;
+        const url = '/api/lectures/findById/' + lecId;
         return this.http.get
         (url, { headers: new HttpHeaders({'x-auth-token' : localStorage.getItem('xAuthToken').valueOf().substring(10, 46) })
         });

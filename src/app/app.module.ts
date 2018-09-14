@@ -64,6 +64,9 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { LectureTimeComponent } from './time-table/lecture-time/lecture-time.component';
 import {NoticeBoardService} from './services/notice-board.service';
 import {WeekService} from './services/week.service';
+import { MessageComponent } from './message/message.component';
+import { MailSendComponent } from './mail/mail-send/mail-send.component';
+import {SendMessageService} from './services/send-message.service';
 
 @NgModule({
   imports: [
@@ -94,7 +97,7 @@ import {WeekService} from './services/week.service';
   TimeService , LectureHallService , CourseService , SemesterService
   , TimeTableService , AttendanceService ,
       MesagingService , FirebaseProvider , NoticeBoardService ,
-  WeekService],
+  WeekService , SendMessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

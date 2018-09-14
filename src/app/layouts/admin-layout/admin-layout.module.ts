@@ -52,6 +52,8 @@ import {LectureHallComponent} from '../../time-table/lecture-hall/lecture-hall.c
 import {MailComponent} from '../../mail/mail.component';
 import {ComposeComponent} from '../../mail/compose/compose.component';
 import {LectureTimeComponent} from '../../time-table/lecture-time/lecture-time.component';
+import {MessageComponent} from '../../message/message.component';
+import {MailSendComponent} from '../../mail/mail-send/mail-send.component';
 
 
 @NgModule({
@@ -104,7 +106,9 @@ import {LectureTimeComponent} from '../../time-table/lecture-time/lecture-time.c
       LectureHallComponent,
       MailComponent,
       ComposeComponent,
-      LectureTimeComponent
+      LectureTimeComponent,
+      MessageComponent,
+      MailSendComponent
   ],
     exports: [CalanderComponent , ScheduleComponent  ]
 })

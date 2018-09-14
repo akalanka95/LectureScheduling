@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   sendCredential(username: string, password: string) {
-    const url = 'http://localhost:8080/token';
+    const url = '/api/token';
     const encodedCredentials = btoa(username + ':' + password);
     const basicHeader = 'Basic ' + encodedCredentials;
     return this.http.get(url, { headers: new HttpHeaders({'Content-Type' : 'application/x-www-form-urlencoded',
@@ -21,14 +21,14 @@ export class LoginService {
   }
 
   checkSession() {
-    const url = 'http://localhost:8080/checkSession';
+    const url = '/api/checkSession';
     return this.http.get
     (url, { headers: new HttpHeaders({'x-auth-token' : localStorage.getItem('xAuthToken').valueOf().substring(10, 46) })
     });
     }
 
   logout() {
-    const url = 'http://localhost:8080/user/logout';
+    const url = '/api/user/logout';
 
     const  headers = new HttpHeaders ({
       'x-auth-token' : localStorage.getItem('xAuthToken')

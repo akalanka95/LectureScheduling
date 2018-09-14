@@ -11,7 +11,7 @@ export class StudentService {
 
     constructor(private http: HttpClient) { }
     getListOfStudents() {
-        const url = 'http://localhost:8080/students/findAll';
+        const url = '/api/students/findAll';
         return this.http.get
         (url, { headers: new HttpHeaders
             ({'x-auth-token' : localStorage.
@@ -20,14 +20,14 @@ export class StudentService {
     }
 
     getStudentByID(studentId) {
-        const url = 'http://localhost:8080/students/findById/' + studentId;
+        const url = '/api/students/findById/' + studentId;
         return this.http.get
         (url, { headers: new HttpHeaders({'x-auth-token' : localStorage
                     .getItem('xAuthToken').valueOf().substring(10, 46) })
         });
     }
     postNewStudent(newStudent: Student) {
-        const url = 'http://localhost:8080/students/addStudent';
+        const url = '/api/students/addStudent';
         return this.http.post
         (url, newStudent, { headers: new HttpHeaders({'x-auth-token' : localStorage
                     .getItem('xAuthToken').valueOf().substring(10, 46) })
@@ -35,7 +35,7 @@ export class StudentService {
 
     }
     updateStudent(updateStudent: Student) {
-        const url = 'http://localhost:8080/students/updateStudent';
+        const url = '/api/students/updateStudent';
         return this.http.put
         (url, updateStudent , { headers: new HttpHeaders({'x-auth-token' : localStorage
                     .getItem('xAuthToken').valueOf().substring(10, 46) })
@@ -43,7 +43,7 @@ export class StudentService {
 
     }
     deleteStudent(student: Student) {
-        const url = 'http://localhost:8080/students/deleteStudent';
+        const url = '/api/students/deleteStudent';
         return this.http.put
         (url, student , { headers: new HttpHeaders({'x-auth-token' : localStorage
                     .getItem('xAuthToken').valueOf().substring(10, 46) })

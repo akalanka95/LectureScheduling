@@ -8,7 +8,7 @@ export class DepartmentService {
 
     constructor(private http: HttpClient) { }
     getListOfDepartments() {
-        const url = 'http://localhost:8080/departments/findAll';
+        const url = '/api/departments/findAll';
         return this.http.get
         (url, { headers: new HttpHeaders({'x-auth-token' : localStorage.getItem('xAuthToken').valueOf().substring(10, 46) })
         });
