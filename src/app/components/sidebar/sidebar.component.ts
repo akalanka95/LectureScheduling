@@ -14,7 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/attendance', title: 'Attendance',  icon: 'notifications', class: '' },
     { path: '/timeTable/view/semester', title: 'Time Schedule',  icon: 'bubble_chart', class: '' },
     { path: '/search/form', title: 'Adding/Canceling',  icon: 'content_paste', class: '' },
-    { path: '/chat/mail', title: 'Chat',  icon: 'library_books', class: '' },
+    { path: '/chat/message', title: 'Chat',  icon: 'library_books', class: '' },
     { path: '/event', title: 'Event Schedule',  icon: 'dashboard', class: '' },
     { path: '/notice-board', title: 'Notice Board',  icon: 'library_books', class: '' },
     { path: '/report', title: 'Report',  icon: 'person', class: '' },

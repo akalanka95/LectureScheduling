@@ -67,6 +67,7 @@ import {WeekService} from './services/week.service';
 import { MessageComponent } from './message/message.component';
 import { MailSendComponent } from './mail/mail-send/mail-send.component';
 import {SendMessageService} from './services/send-message.service';
+import {TokenService} from './services/token.service';
 
 @NgModule({
   imports: [
@@ -97,7 +98,7 @@ import {SendMessageService} from './services/send-message.service';
   TimeService , LectureHallService , CourseService , SemesterService
   , TimeTableService , AttendanceService ,
       MesagingService , FirebaseProvider , NoticeBoardService ,
-  WeekService , SendMessageService],
+  WeekService , SendMessageService, TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
