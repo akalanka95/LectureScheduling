@@ -6,6 +6,8 @@ import {DayService} from '../services/day.service';
 import {Day} from '../models/Day.model';
 import {AttendanceService} from '../services/attendance.service';
 import {TimeTableService} from '../services/time-table.service';
+import {WeekService} from '../services/week.service';
+import {Week} from '../models/Week.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,9 +19,13 @@ export class DashboardComponent implements OnInit {
     dayList: Day[] = [];
     activeDay: Array<string> = [];
     message;
+    curDate = new Date();
+    weekList: Week[];
+    weekNo: string;
     constructor(private dayService: DayService,
                 private attendanceService: AttendanceService,
                 private timeTableservice: TimeTableService,
+                private weekservice: WeekService,
                 private route: ActivatedRoute,
                 private router: Router,
                 private http: HttpClient) {
@@ -84,6 +90,19 @@ export class DashboardComponent implements OnInit {
     };
 
     ngOnInit() {
+        // week
+        this.weekservice.findWeek()
+            .subscribe(
+                (weekList: Week[]) => {
+                    this.weekList = weekList;
+                    for ( const weekActive of this.weekList) {
+                        if (weekActive.active === true) {
+                            this.weekNo = weekActive.week;
+                        }
+                    }
+                },
+                (error) => console.log(error)
+            );
         // my edit
         this.dayService.getListOfDays()
             .subscribe(

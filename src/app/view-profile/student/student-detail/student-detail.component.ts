@@ -46,8 +46,14 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
     onDeleteStudent(student: Student) {
         this.studentService.deleteStudent(student)
             .subscribe(
-                (students: any[]) => {
-                    this.students = students;
+                (students: Student) => {
+                    this.studentService.getListOfStudents()
+                        .subscribe(
+                            (studentList: any[]) => {
+                                this.students = studentList;
+                            },
+                            (error) => console.log(error)
+                        )
                 },
                 (error) => console.log(error)
             )

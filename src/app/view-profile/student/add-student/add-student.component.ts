@@ -26,6 +26,7 @@ export class AddStudentComponent implements OnInit {
     studentAddres: string;
     studentContact: string ;
     studentRole: string ;
+    studentCode: string;
     imagePath = '../assets/img/faces/marc.jpg';
     studentImageUrl: string;
     studentDepartment: Department = null;
@@ -49,6 +50,7 @@ export class AddStudentComponent implements OnInit {
         this.studentEmail = this.passedStudent.email;
         this.studentAddres = this.passedStudent.address;
         this.studentContact = this.passedStudent.contact;
+        this.studentCode = this.passedStudent.code;
         this.imagePath =  this.passedStudent.imageUrl ;
     }
       this.departmentService.getListOfDepartments()
@@ -98,8 +100,11 @@ export class AddStudentComponent implements OnInit {
             this.studentObject.id = this.studentId;
             this.studentService.updateStudent(this.studentObject)
                 .subscribe(
-                    (response) => console.log(response),
-                    (error) => console.log(error)
+                    (student: Student) => {
+                        console.log('student updated');
+                        console.log(student);
+                    },
+                            (error) => console.log(error)
                 );
         }
     }

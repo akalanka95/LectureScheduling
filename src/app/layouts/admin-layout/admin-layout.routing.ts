@@ -82,6 +82,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'view-profile',   component: ViewProfileComponent , children : [
             {path : 'lectures', component : LecturesDetailComponent},
+            {path : 'lectures/edit', component : AddLectureComponent},
             {path : 'add/lecture', component : AddLectureComponent},
             {path : 'students', component : StudentDetailComponent},
             {path : 'add/student', component : AddStudentComponent},

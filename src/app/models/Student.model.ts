@@ -12,6 +12,7 @@ export class Student {
     public imageUrl: string;
     public active: boolean;
     public semester: Semester;
+    public code: string;
 
 
     constructor() {

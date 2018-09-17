@@ -24,14 +24,14 @@
         <td class="text-danger">{{lectures.contact}}</td>
         <td class="text-danger">{{lectures.email}}</td>
         <td class="text-danger">{{lectures.active}}</td>
-        <td><button  type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong" ><i class="fa fa-eye"></i></button>
-          &nbsp;
-          <a class="btn btn-success btn-sm" ><i class="fa fa-pencil-square "></i></a>
+        <td><!--<button  type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong" ><i class="fa fa-eye"></i></button>
+          &nbsp;-->
+          <a class="btn btn-success btn-sm" (click)="onEditLecture(lectures)"><i class="fa fa-pencil-square "></i></a>
           &nbsp;
           <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
              ><i class="fa fa-trash "></i></a></td>
 
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!--<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document" style="width: 400px">
             <div class="modal-content">
               <div class="modal-header">
@@ -45,14 +45,14 @@
                 <div class="col-md-12">
                   <div class="card card-profile">
                     <div class="card-avatar">
-                     <!-- <a >
-                        <img class="img" src="../assets/img/student/{{student.imageUrl}}"/>
-                      </a>-->
+                      <a >
+                        <img class="img" src="../assets/img/student/{{lectures.imageUrl}}"/>
+                      </a>
 
                     </div>
 
                     <div class="content">
-                      <!--<h1>Department Name</h1>-->
+                      &lt;!&ndash;<h1>Department Name</h1>&ndash;&gt;
                       <h4 class="card-title">{{lectures.fullName}}</h4>
                       <h6 class="category text-gray" > {{lectures.role}}</h6>
                       <h6 class="category text-gray" > {{lectures.department}}</h6>
@@ -60,7 +60,7 @@
                       <h6 class="category text-gray" style="padding-right: 10px">{{lectures.address}}</h6>
                       <h6 class="category text-gray" > {{lectures.contact}}</h6>
 
-                      <!--      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>-->
+                      &lt;!&ndash;      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>&ndash;&gt;
                     </div>
                   </div>
                 </div>
@@ -70,12 +70,12 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
-               --></div>
+                &lt;!&ndash; <button type="submit" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+               &ndash;&gt;</div>
             </div>
           </div>
         </div>
-        <div class="modal fade" id="deleteModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        --><!--<div class="modal fade" id="deleteModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
           <div class="modal-dialog" role="document" style="width: 400px">
             <div class="modal-content">
               <div class="modal-header">
@@ -94,6 +94,7 @@
             </div>
           </div>
         </div>
+        -->
         <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
           <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
@@ -111,7 +112,7 @@
 
               <!--Footer-->
               <div class="modal-footer flex-center">
-                <a href="https://mdbootstrap.com/product/angular-bootstrap-pro/" mdbBtn color="danger" outline="true" class="waves-effect"
+                <a mdbBtn color="danger" outline="true" class="waves-effect" (click)="onDeleteLecture(lectures)"
                    mdbWavesEffect>Yes</a>
                 <a type="button" mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
               </div>

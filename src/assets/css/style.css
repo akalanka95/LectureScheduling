@@ -22,9 +22,12 @@ a {
   color: #A2B9B2;
   text-decoration: none;
 }
+.modal-backdrop {
+  /* bug fix - no overlay */
+  opacity: 1;
+}
 
 /* --------------------------------
-
 Main Components
 
 -------------------------------- */

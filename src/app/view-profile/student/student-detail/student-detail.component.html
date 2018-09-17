@@ -24,17 +24,17 @@
         <td class="text-danger">{{student.contact}}</td>
         <td class="text-danger">{{student.email}}</td>
         <td class="text-danger">{{student.active}}</td>
-        <td><button  type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong" ><i class="fa fa-eye"></i></button>
-          &nbsp;
+        <td><!--<button  type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong" ><i class="fa fa-eye"></i></button>
+          &nbsp;-->
           <a class="btn btn-success btn-sm" (click)="onEditStudent(student)"><i class="fa fa-pencil-square "></i></a>
           &nbsp;
-          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModalLong"><i class="fa fa-trash "></i></a></td>
+          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"><i class="fa fa-trash "></i></a></td>
 
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!--<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document" style="width: 400px">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Student </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -44,14 +44,13 @@
                 <div class="col-md-12">
                   <div class="card card-profile">
                     <div class="card-avatar">
-                      <a >
-                        <img class="img" src="../assets/img/student/{{student.imageUrl}}"/>
-                      </a>
-
+                       <a >
+                         <img class="img" src="../assets/img/student/{{student.imageUrl}}"/>
+                       </a>
                     </div>
 
                     <div class="content">
-                      <!--<h1>Department Name</h1>-->
+                      &lt;!&ndash;<h1>Department Name</h1>&ndash;&gt;
                       <h4 class="card-title">{{student.fullName}}</h4>
                       <h6 class="category text-gray" > {{student.role}}</h6>
                       <h6 class="category text-gray" > {{student.department}}</h6>
@@ -59,7 +58,7 @@
                       <h6 class="category text-gray" style="padding-right: 10px">{{student.address}}</h6>
                       <h6 class="category text-gray" > {{student.contact}}</h6>
 
-                      <!--      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>-->
+                      &lt;!&ndash;      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>&ndash;&gt;
                     </div>
                   </div>
                 </div>
@@ -69,12 +68,39 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
-              --></div>
+                &lt;!&ndash; <button type="submit" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+               &ndash;&gt;</div>
             </div>
           </div>
         </div>
-        <div class="modal fade" id="deleteModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        -->
+        <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+              <!--Header-->
+              <div class="modal-header d-flex justify-content-center">
+                <p class="heading">Are you sure?</p>
+              </div>
+
+              <!--Body-->
+              <div class="modal-body">
+                <i class="fa fa-times fa-4x animated rotateIn"></i>
+              </div>
+
+              <!--Footer-->
+              <div class="modal-footer flex-center">
+                <a mdbBtn color="danger" outline="true" class="waves-effect" (click)="onDeleteStudent(student)"
+                   mdbWavesEffect>Yes</a>
+                <a type="button" mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
+              </div>
+            </div>
+            <!--/.Content-->
+          </div>
+        </div>
+
+        <!--<div class="modal fade" id="deleteModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
           <div class="modal-dialog" role="document" style="width: 400px">
             <div class="modal-content">
               <div class="modal-header">
@@ -93,7 +119,7 @@
             </div>
           </div>
         </div>
-
+-->
       </tr>
       </tbody>
     </table>
