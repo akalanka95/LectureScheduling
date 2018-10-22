@@ -54,6 +54,8 @@ import {ComposeComponent} from '../../mail/compose/compose.component';
 import {LectureTimeComponent} from '../../time-table/lecture-time/lecture-time.component';
 import {MessageComponent} from '../../message/message.component';
 import {MailSendComponent} from '../../mail/mail-send/mail-send.component';
+import {FullCalendarModule} from 'ng-fullcalendar';
+import {RefDetailsComponent} from '../../view-profile/ref/ref-details/ref-details.component';
 
 
 @NgModule({
@@ -68,6 +70,7 @@ import {MailSendComponent} from '../../mail/mail-send/mail-send.component';
     MatInputModule,
     MatTooltipModule,
       FlexLayoutModule,
+      FullCalendarModule,
       QuillModule,
       MDBBootstrapModule.forRoot(),
       FlatpickrModule.forRoot(),
@@ -108,7 +111,8 @@ import {MailSendComponent} from '../../mail/mail-send/mail-send.component';
       ComposeComponent,
       LectureTimeComponent,
       MessageComponent,
-      MailSendComponent
+      MailSendComponent,
+      RefDetailsComponent
   ],
     exports: [CalanderComponent , ScheduleComponent  ]
 })

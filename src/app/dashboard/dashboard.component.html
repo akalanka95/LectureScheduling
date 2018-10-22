@@ -13,12 +13,11 @@
                           <!--<small>GB</small>-->
                       </h3>
                   </div>
-                  <!--<div class="card-footer">
+                  <div class="card-footer">
                       <div class="stats">
-                          <i class="material-icons text-danger">warning</i>
-                          <a href="#pablo">Get More Space...</a>
+                          <i class="material-icons text-danger"></i>
                       </div>
-                  </div>-->
+                  </div>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
@@ -30,27 +29,27 @@
                       <p class="card-category">Time</p>
                       <h3 class="card-title">{{curDate | date:'h:mm a'}}</h3>
                   </div>
-                  <!--<div class="card-footer">
+                  <div class="card-footer">
                       <div class="stats">
-                          <i class="material-icons">date_range</i> Last 24 Hours
+                          <i class="material-icons"></i>
                       </div>
-                  </div>-->
+                  </div>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                   <div class="card-header card-header-danger card-header-icon">
                       <div class="card-icon">
-                          <i class="material-icons"></i>
+                          <i class="material-icons">content_copy</i>
                       </div>
                       <p class="card-category">content_copy</p>
                       <h3 class="card-title">{{weekNo}}</h3>
                   </div>
-                  <!--<div class="card-footer">
+                  <div class="card-footer">
                       <div class="stats">
-                          <i class="material-icons">local_offer</i> Tracked from Github
+                          <i class="material-icons"></i>
                       </div>
-                  </div>-->
+                  </div>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6">
@@ -64,7 +63,7 @@
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <i class="material-icons">update</i> Just Updated
+                          <i class="material-icons"></i>
                       </div>
                   </div>
               </div>
@@ -72,7 +71,7 @@
       </div>
 
       <div class="row">
-          <div class="col-lg-5 col-md-6 col-sm-6">
+          <!--<div class="col-lg-5 col-md-6 col-sm-6">
               <div class="card">
                   <div class="card-header card-header-warning">
                       <h4 class="card-title">Active Days</h4>
@@ -80,20 +79,93 @@
                   </div>
                   <div class="card-body table-responsive">
                       <div *ngFor="let days of dayList">
-                          <mat-slide-toggle  [(ngModel)]="days.active"
-                                             class="example-margin" color="primary">
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>{{days.day}}</p></mat-slide-toggle>
-                          <br>
-                          <br>
+                          <div class="row">
+                          <div class="cole-md-6">
+                              <mat-slide-toggle  [(ngModel)]="days.active"
+                                                 class="example-margin" color="primary">
+                              </mat-slide-toggle>
+                          </div>
+                          <div class="cole-md-6">
+                              <p>{{days.day}}</p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div>
+                          </div>
                       </div>
-                      <!--<button type="submit" (click)="saveDay()" class="btn btn-danger pull-right" >Save Changes</button>
-                      --><button type="button" class="pull-right"
-                              mdbBtn color="primary"   data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
-                              mdbWavesEffect>Save</button>
+                      &lt;!&ndash;<button type="submit" (click)="saveDay()" class="btn btn-danger pull-right" >Save Changes</button>
+                      &ndash;&gt;<button type="button" class="pull-right"
+                                 mdbBtn color="primary"   data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
+                                 mdbWavesEffect>Save</button>
+                  </div>
+              </div>
+          </div>-->
+          <div class="col-lg-5 col-md-6 col-sm-6">
+              <div class="row">
+                  <div style="margin-top: 5px">
+                      <h2 style="margin-bottom: 10px">NOTICE BOARD</h2>
+                      <div class="list-group">
+                          <span *ngFor="let notice of noticeList">
+                          <a  class="list-group-item list-group-item-action flex-column align-items-start ">
+                              <div class="d-flex w-100 justify-content-between">
+                                  <h5 class="mb-1">{{notice.title}}</h5>
+                                  <small>{{notice.date}}</small>
+                              </div>
+                              <p class="mb-1">{{notice.description}}</p>
+                              <small>Donec id elit non mi porta.</small>
+                          </a>
+                          </span>
+                          <!--<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                  <h5 class="mb-1">List group item heading</h5>
+                                  <small class="text-muted">3 days ago</small>
+                              </div>
+                              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                              <small class="text-muted">Donec id elit non mi porta.</small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                  <h5 class="mb-1">List group item heading</h5>
+                                  <small class="text-muted">3 days ago</small>
+                              </div>
+                              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                              <small class="text-muted">Donec id elit non mi porta.</small>
+                          </a>
+                      --></div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="card" >
+                      <div class="card-header card-header-warning">
+                          <h4 class="card-title">Active Days</h4>
+                          <p class="card-category">Enable/Disable the days of the week</p>
+                      </div>
+                      <div class="card-body table-responsive" style="padding:20px;">
+                          <div *ngFor="let days of dayList">
+                              <div class="row" style="margin-left: 20px">
+                                  <div class="cole-md-6">
+                                      <mat-slide-toggle  [(ngModel)]="days.active"
+                                                         class="example-margin" color="primary">
+                                      </mat-slide-toggle>
+                                  </div>
+                                  <div class="cole-md-6">
+                                      <p>{{days.day}}</p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  </div>
+                              </div>
+                          </div>
+                          &ndash;&gt;<button type="button" class="pull-right"
+                                             mdbBtn color="primary"   data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
+                                             mdbWavesEffect>Save</button>
+                      </div>
                   </div>
               </div>
           </div>
-          <!-- <div class="col-md-4">
+          <div class="col-lg-6 col-md-6 col-sm-6" style="margin-left: 40px">
+              <!--<a (click)="loadevents()"> loadevents</a>
+              <p>Display event : {{displayEvent | json}}</p>-->
+              <div *ngIf="calendarOptions">
+                  <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
+                                   (eventResize)="updateEvent($event.detail)" (dayClick)="dayClick($event.detail)" (clickButton)="clickButton($event.detail)" [(eventsModel)]="events"></ng-fullcalendar>
+              </div>
+          </div>
+           <!--<div class="col-md-4">
                <div class="card card-chart">
                    <div class="card-header card-header-warning">
                        <div class="ct-chart" id="websiteViewsChart"></div>
@@ -126,6 +198,7 @@
                </div>
            </div>-->
       </div>
+
       <div class="row">
           <div class="col-lg-6 col-md-12">
               <div class="card">

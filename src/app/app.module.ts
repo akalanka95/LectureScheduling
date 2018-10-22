@@ -68,6 +68,11 @@ import { MessageComponent } from './message/message.component';
 import { MailSendComponent } from './mail/mail-send/mail-send.component';
 import {SendMessageService} from './services/send-message.service';
 import {TokenService} from './services/token.service';
+import {IndexService} from './services/index.service';
+import {ResultService} from './services/result.service';
+import {FullCalendarModule} from 'ng-fullcalendar';
+import {EventService} from './event.service';
+import { RefDetailsComponent } from './view-profile/ref/ref-details/ref-details.component';
 
 @NgModule({
   imports: [
@@ -80,7 +85,9 @@ import {TokenService} from './services/token.service';
     AppRoutingModule,
       MaterialModule,
       FlexLayoutModule,
+      CalendarModule,
       QuillModule,
+      FullCalendarModule,
       MDBBootstrapModule.forRoot(),
       AngularFireModule.initializeApp(environment.firebase),
       AgmCoreModule.forRoot({
@@ -98,7 +105,8 @@ import {TokenService} from './services/token.service';
   TimeService , LectureHallService , CourseService , SemesterService
   , TimeTableService , AttendanceService ,
       MesagingService , FirebaseProvider , NoticeBoardService ,
-  WeekService , SendMessageService, TokenService],
+  WeekService , SendMessageService,
+      TokenService , IndexService , ResultService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

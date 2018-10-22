@@ -8,5 +8,4 @@ import {MessagingService} from './messaging.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
 }

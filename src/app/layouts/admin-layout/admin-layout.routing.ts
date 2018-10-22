@@ -34,6 +34,7 @@ import {ComposeComponent} from '../../mail/compose/compose.component';
 import {LectureTimeComponent} from '../../time-table/lecture-time/lecture-time.component';
 import {MailSendComponent} from '../../mail/mail-send/mail-send.component';
 import {MessageComponent} from '../../message/message.component';
+import {RefDetailsComponent} from '../../view-profile/ref/ref-details/ref-details.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -82,6 +83,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'view-profile',   component: ViewProfileComponent , children : [
             {path : 'lectures', component : LecturesDetailComponent},
+            {path : 'departmentRef', component : RefDetailsComponent},
             {path : 'lectures/edit', component : AddLectureComponent},
             {path : 'add/lecture', component : AddLectureComponent},
             {path : 'students', component : StudentDetailComponent},

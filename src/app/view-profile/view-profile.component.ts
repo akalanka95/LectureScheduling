@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewProfileComponent implements OnInit {
 
-    active = 'Add Student';
-    activeId = 'student';
+    active = 'Add Lecture';
+    activeId = 'lecture';
     constructor() {
     }
 

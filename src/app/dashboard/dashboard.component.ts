@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import * as Chartist from 'chartist';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
@@ -8,6 +8,12 @@ import {AttendanceService} from '../services/attendance.service';
 import {TimeTableService} from '../services/time-table.service';
 import {WeekService} from '../services/week.service';
 import {Week} from '../models/Week.model';
+import {Options} from 'fullcalendar';
+import {CalendarComponent} from 'ng-fullcalendar';
+import {EventService} from '../event.service';
+import {NoticeBoardService} from '../services/notice-board.service';
+import {NoticeBoard} from '../models/NoticeBoard.model';
+declare let $: any;
 
 @Component({
   selector: 'app-dashboard',
@@ -15,8 +21,12 @@ import {Week} from '../models/Week.model';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+    calendarOptions: Options;
+    @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
+    displayEvent: any;
+    events = null;
     dayList: Day[] = [];
+    noticeList: NoticeBoard[] = [];
     activeDay: Array<string> = [];
     message;
     curDate = new Date();
@@ -26,11 +36,12 @@ export class DashboardComponent implements OnInit {
                 private attendanceService: AttendanceService,
                 private timeTableservice: TimeTableService,
                 private weekservice: WeekService,
+                private noticeBoardService: NoticeBoardService,
                 private route: ActivatedRoute,
                 private router: Router,
-                private http: HttpClient) {
+                private http: HttpClient,
+                protected eventService: EventService) {
     }
-
     startAnimationForLineChart(chart) {
         let seq: any, delays: any, durations: any;
         seq = 0;
@@ -90,6 +101,16 @@ export class DashboardComponent implements OnInit {
     };
 
     ngOnInit() {
+        this.calendarOptions = {
+            editable: true,
+            eventLimit: false,
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,listMonth'
+            },
+            events: []
+        };
         // week
         this.weekservice.findWeek()
             .subscribe(
@@ -108,6 +129,15 @@ export class DashboardComponent implements OnInit {
             .subscribe(
                 (dayList: any[]) => {
                     this.dayList = dayList;
+                },
+                (error) => console.log(error)
+            );
+        // NoticeBoard
+        this.noticeBoardService.getNotice()
+            .subscribe(
+                (noticeList: any[]) => {
+                    this.noticeList = noticeList;
+                    this.noticeList.reverse();
                 },
                 (error) => console.log(error)
             );
@@ -192,6 +222,7 @@ export class DashboardComponent implements OnInit {
 
     saveDay() {
         this.activeDay = [];
+        console.log(this.dayList);
         for (const day of this.dayList) {
             if (day.day === 'Monday') {
                 this.attendanceService.updateMonday(day.active).subscribe(
@@ -209,7 +240,70 @@ export class DashboardComponent implements OnInit {
                     (error) => console.log(error)
                 );
             }
-            /*this.activeDay.push(day.day);*/
+            if (day.day === 'Tuesday') {
+                this.attendanceService.updateTuesday(day.active).subscribe(
+                    (response) => {
+                        console.log('Monday updated succesfully');
+                        console.log(response);
+                    },
+                    (error) => console.log(error)
+                );
+                this.timeTableservice.updateEnableByTuesday(day.active).subscribe(
+                    (response) => {
+                        console.log('works timetable update date');
+                        console.log(response);
+                    },
+                    (error) => console.log(error)
+                );
+            }
+            if (day.day === 'Wednesday') {
+                this.attendanceService.updateWednesday(day.active).subscribe(
+                    (response) => {
+                        console.log('Monday updated succesfully');
+                        console.log(response);
+                    },
+                    (error) => console.log(error)
+                );
+                this.timeTableservice.updateEnableByWednesday(day.active).subscribe(
+                    (response) => {
+                        console.log('works timetable update date');
+                        console.log(response);
+                    },
+                    (error) => console.log(error)
+                );
+            }
+            if (day.day === 'Thursday') {
+                this.attendanceService.updateThursday(day.active).subscribe(
+                    (response) => {
+                        console.log('Monday updated succesfully');
+                        console.log(response);
+                    },
+                    (error) => console.log(error)
+                );
+                this.timeTableservice.updateEnableByThursday(day.active).subscribe(
+                    (response) => {
+                        console.log('works timetable update date');
+                        console.log(response);
+                    },
+                    (error) => console.log(error)
+                );
+            }
+            if (day.day === 'Friday') {
+                this.attendanceService.updateFriday(day.active).subscribe(
+                    (response) => {
+                        console.log('Monday updated succesfully');
+                        console.log(response);
+                    },
+                    (error) => console.log(error)
+                );
+                this.timeTableservice.updateEnableByFriday(day.active).subscribe(
+                    (response) => {
+                        console.log('works timetable update date');
+                        console.log(response);
+                    },
+                    (error) => console.log(error)
+                );
+            }
         }
         console.log('this is active day');
         console.log(this.activeDay);
@@ -222,5 +316,45 @@ export class DashboardComponent implements OnInit {
                 (error) => console.log(error)
             );
   }
+    loadevents() {
+        this.eventService.getEvents().subscribe(data => {
+            this.events = data;
+        });
+    }
+    clickButton(model: any) {
+        this.displayEvent = model;
+    }
+    dayClick(model: any) {
+        console.log(model);
+    }
+    eventClick(model: any) {
+        model = {
+            event: {
+                id: model.event.id,
+                start: model.event.start,
+                end: model.event.end,
+                title: model.event.title,
+                allDay: model.event.allDay
+                // other params
+            },
+            duration: {}
+        }
+        this.displayEvent = model;
+    }
+    updateEvent(model: any) {
+        model = {
+            event: {
+                id: model.event.id,
+                start: model.event.start,
+                end: model.event.end,
+                title: model.event.title
+                // other params
+            },
+            duration: {
+                _data: model.duration._data
+            }
+        }
+        this.displayEvent = model;
+    }
 
 }

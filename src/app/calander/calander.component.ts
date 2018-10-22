@@ -77,11 +77,11 @@ export class CalanderComponent {
         {
             start: subDays(startOfDay(new Date()), 1),
             end: addDays(new Date(), 1),
-            title: 'A 3 day event',
+            title: 'Workshop regarding developing leadership skills',
             color: colors.red,
             actions: this.actions
-        },
-        {
+        }
+        /*{
             start: startOfDay(new Date()),
             title: 'An event with no end date',
             color: colors.yellow,
@@ -92,8 +92,8 @@ export class CalanderComponent {
             end: addDays(endOfMonth(new Date()), 3),
             title: 'A long event that spans 2 months',
             color: colors.blue
-        },
-        {
+        }*/
+        /*{
             start: addHours(startOfDay(new Date()), 2),
             end: new Date(),
             title: 'A draggable and resizable event',
@@ -104,7 +104,7 @@ export class CalanderComponent {
                 afterEnd: true
             },
             draggable: true
-        }
+        }*/
     ];
 
     activeDayIsOpen = true;
