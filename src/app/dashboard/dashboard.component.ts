@@ -13,6 +13,9 @@ import {CalendarComponent} from 'ng-fullcalendar';
 import {EventService} from '../event.service';
 import {NoticeBoardService} from '../services/notice-board.service';
 import {NoticeBoard} from '../models/NoticeBoard.model';
+import {MesagingService} from '../services/mesaging.service';
+import {SendMessageService} from '../services/send-message.service';
+import {Message} from '../models/Message.model';
 declare let $: any;
 
 @Component({
@@ -32,9 +35,11 @@ export class DashboardComponent implements OnInit {
     curDate = new Date();
     weekList: Week[];
     weekNo: string;
+    messageList: Message[] = [];
     constructor(private dayService: DayService,
                 private attendanceService: AttendanceService,
                 private timeTableservice: TimeTableService,
+                private sendMessageService: SendMessageService,
                 private weekservice: WeekService,
                 private noticeBoardService: NoticeBoardService,
                 private route: ActivatedRoute,
@@ -138,6 +143,19 @@ export class DashboardComponent implements OnInit {
                 (noticeList: any[]) => {
                     this.noticeList = noticeList;
                     this.noticeList.reverse();
+                },
+                (error) => console.log(error)
+            );
+        // Messaging service
+        this.sendMessageService.getListOfMessage()
+            .subscribe(
+                (messageList: Message[]) => {
+                     for ( const list of messageList) {
+                         if (list.type === 'received') {
+                             this.messageList.push(list);
+                         }
+                     }
+                     this.messageList.reverse();
                 },
                 (error) => console.log(error)
             );
