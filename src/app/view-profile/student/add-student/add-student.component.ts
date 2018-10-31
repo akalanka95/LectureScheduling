@@ -70,25 +70,28 @@ export class AddStudentComponent implements OnInit {
         this.studentObject.email = this.studentEmail;
         this.studentObject.role = this.studentRole;
         // this.studentImageUrl = 'ST' + this.studentName;
-        this.studentImageUrl = 'ST' + this.studentName + '.' +
-            this.selectedFile.name.substr( this.selectedFile.name.lastIndexOf('.') + 1);
-        this.studentObject.imageUrl = this.studentImageUrl;
+        if (this.passedStudent != null) {
+            this.studentObject.imageUrl  = this.imagePath;
+        } else {
+            this.studentImageUrl = 'ST' + this.studentName + '.' +
+                this.selectedFile.name.substr( this.selectedFile.name.lastIndexOf('.') + 1);
+            this.studentObject.imageUrl = this.studentImageUrl;
+            const fd = new FormData();
+            fd.append('file', this.selectedFile, this.studentImageUrl );
+            this.http.post('http://localhost:8080/api/uploades/images', fd,
+                {
+                    headers: new HttpHeaders({
+                        'x-auth-token':
+                            localStorage.getItem('xAuthToken').valueOf().substring(10, 46)
+                    })
+                }).subscribe(res => {
+                    console.log(res);
+                },
+                (error) => console.log(error)
+            );
+        }
         this.studentObject.active = true;
         console.log(this.studentObject);
-        const fd = new FormData();
-        fd.append('file', this.selectedFile, this.studentImageUrl );
-        this.http.post('http://localhost:8080/api/uploades/images', fd,
-            {
-                headers: new HttpHeaders({
-                    'x-auth-token':
-                        localStorage.getItem('xAuthToken').valueOf().substring(10, 46)
-                })
-            }).subscribe(res => {
-                console.log(res);
-            },
-            (error) => console.log(error)
-        );
-
         if (this.addOrEdit) {
             this.studentService.postNewStudent(this.studentObject)
                 .subscribe(
@@ -97,6 +100,7 @@ export class AddStudentComponent implements OnInit {
                 );
             this.addLectureForm.resetForm();
         } else {
+            console.log('insert into updated');
             this.studentObject.id = this.studentId;
             this.studentService.updateStudent(this.studentObject)
                 .subscribe(

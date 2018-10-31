@@ -15,7 +15,7 @@
               <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link "  data-toggle="tab" routerLink="students"  (click)="activeTab('Add Student','student')"><i class="material-icons">dashboard</i>Students</a>
               </li>
-              <button type="button" style="margin-left: 50%"
+              <button type="button" style="margin-left: 50%" [hidden]="addButton"
                       mdbBtn color="primary"
                       mdbWavesEffect routerLink="add/{{activeId}}" data-toggle="tab">{{active}}</button>
               <!--<a class="btn btn-primary btn-round pull-right" style="float: right" routerLink="add/{{activeId}}" data-toggle="tab">

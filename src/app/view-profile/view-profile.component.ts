@@ -9,6 +9,7 @@ export class ViewProfileComponent implements OnInit {
 
     active = 'Add Lecture';
     activeId = 'lecture';
+    addButton = false;
     constructor() {
     }
 
@@ -16,8 +17,12 @@ export class ViewProfileComponent implements OnInit {
 
     }
     activeTab(text: string, textId: string) {
+        this.addButton = false;
         this.active = text;
         this.activeId = textId;
+        if ( text === 'Add DepartmentRef') {
+            this.addButton = true;
+        }
     }
 
 }
